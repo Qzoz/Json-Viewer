@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json Viewer</title>
+    <link rel="stylesheet" href="css/jsonViewer.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+        <div class="header-container">
+            <div class="query-input-merged">
+                <select class="input input-child" name="jv_request_method" id="jv_request_method">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                </select>
+                <input class="input input-child" type="text" id="jv_request_url"
+                    value="https://pokeapi.co/api/v2/pokemon/" placeholder="URL here...">
+                <button class="input input-child input-btn" id="jv_fetcher_btn">Fetch</button>
+            </div>
+            <hr>
+            <div class="header-list" id="header_list">
+                <div class="header-chip" id="{KEY}">
+                    <span>Auth:&nbsp;</span>
+                    <span>123456789132456789</span>
+                    <span class="header-clear">&times;</span>
+                </div>
+            </div>
+            <button class="input input-btn" data-toggle="modal" data-target="header_modal">Add Header</button>
+        </div>
+        <div class="viewer-container">
+            <div class="viewer-head">
+                <div class="loading-view" id="jv_loader">
+                    <h4>Loading...</h4>
+                </div>
+                <div class="viewer-options">
+                    <div class="view-selector"><span class="select-head">Indent:</span>
+                        <select name="jv_view_indent" class="select-input" onchange="changeViewIndent(this);"
+                            id="jv_view_indent" disabled>
+                            <option value="0">0 space</option>
+                            <option value="1">1 space</option>
+                            <option value="2">2 space</option>
+                            <option value="3">3 space</option>
+                            <option value="4" selected>4 space</option>
+                            <option value="5">5 space</option>
+                            <option value="6">6 space</option>
+                            <option value="7">7 space</option>
+                            <option value="8">8 space</option>
+                        </select></div>
+                    <div class="view-selector"><span class="select-head">Font Size:</span>
+                        <select name="jv_view_fsize" class="select-input" onchange="changeViewFontSize(this);"
+                            id="jv_view_fsize">
+                            <option value="12">12.0</option>
+                            <option value="13">13.0</option>
+                            <option value="14">14.0</option>
+                            <option value="15">15.0</option>
+                            <option value="16" selected>16.0</option>
+                            <option value="17">17.0</option>
+                            <option value="18">18.0</option>
+                            <option value="19">19.0</option>
+                            <option value="20">20.0</option>
+                            <option value="21">21.0</option>
+                            <option value="22">22.0</option>
+                        </select></div>
+                </div>
+                <div class="viewer-toggler-switch" id="jv_view_toggle">
+                    <button class="input view-tog-button" data-index="1">RAW</button>
+                    <button class="input view-tog-button" data-index="2">Pretty</button>
+                    <button class="input view-tog-button active" data-index="3">Tree</button>
+                </div>
+            </div>
+            <div class="viewer-body" id="jv_view_body">
+            </div>
+        </div>
+        <div class="footer-container">
+            <p>By: Qzoz</p>
+        </div>
+    </div>
+
+    <div class="modal-container" id="header_modal">
+        <div class="close-btn" data-toggle="modal" data-target="header_modal">
+            <svg class="cross-svg" viewBox="0 0 100 100">
+                <path d="M50,30 L20,10 H10 V20 L30,50 L10,80 V90 H20 L50,70 L80,90 H90 V80 L70,50 L90,20 V10 H80Z"/>
+            </svg>
+        </div>
+        <div class="modal-content" style="width: 50rem;">
+            <div class="modal-head">
+                <h2>Add Header</h2>
+            </div>
+            <div class="modal-body">
+                <p class="error-msg"></p>
+                <input type="text" class="input header-key" id="form_header_key" placeholder="Key...">
+                <textarea id="form_header_val" class="input header-val" placeholder="Value..."></textarea>
+                <hr>
+                <div class="button-holder">
+                    <button class="input input-btn" id="header_reset">Reset</button>
+                    <button class="input input-btn" id="header_add">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jsonViewer.js"></script>
+    <script src="js/modal.js"></script>
+</body>
+
+</html>

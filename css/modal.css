@@ -1,0 +1,83 @@
+.modal-container {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(44, 44, 44, 0.9);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: auto;
+  -webkit-animation: slowPopUp;
+          animation: slowPopUp;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+
+@-webkit-keyframes slowPopUp {
+  from {
+    opacity: 0.0;
+    height: 0vh;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+@keyframes slowPopUp {
+  from {
+    opacity: 0.0;
+    height: 0vh;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  padding: 1rem;
+}
+
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-bottom: 3rem;
+  max-width: 70%;
+  min-width: 20rem;
+  background-color: #ffffff;
+}
+
+.modal-content .modal-head {
+  padding: 1rem;
+  background-color: #c4c4c4;
+  text-align: center;
+}
+
+.modal-content .modal-body {
+  padding: 1rem;
+}
+
+.modal-content .modal-foot {
+  padding: 1rem;
+  background-color: #c4c4c4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=modal.css.map */
